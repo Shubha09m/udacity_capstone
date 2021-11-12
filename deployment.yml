@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: siva-capstone-deployment
+  name: shubham-capstone-deployment
   labels:
-    app: siva-capstone-deployment
+    app: shubham-capstone-deployment
   namespace: default
 spec:
   replicas: 3
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: siva-capstone-deployment
+        app: shubham-capstone-deployment
     spec:
       containers:
-        - image: dockerbeginnersiva/project6:4.0
+        - image: shubham241/capstone
           imagePullPolicy: Always
-          name: siva-capstone-deployment
+          name: shubham-capstone-deployment
           ports:
             - containerPort: 8080
 
@@ -31,13 +31,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: siva-capstone-deployment
+  name: shubham-capstone-deployment
   labels:
-    app: siva-capstone-deployment
+    app: shubham-capstone-deployment
 spec:
   type: LoadBalancer
   selector:
-    app: siva-capstone-deployment
+    app: shubham-capstone-deployment
   ports:
     - port: 8080
       targetPort: 8080
