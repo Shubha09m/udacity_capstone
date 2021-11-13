@@ -11,18 +11,18 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
-      - run:
-          name: add credentials
-          command: |
-            mkdir ~/.aws/
-            cat \<< EOF > ~/.aws/credentials
-            aws_access_key_id = AKIA3BIT4IF7LGOO67SN
-            aws_secret_access_key = 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
-            EOF
-            cat \<< EOF > ~/.aws/config
-            [default]
-            region = us-east-1
-            EOF
+      # - run:
+      #     name: add credentials
+      #     command: |
+      #       mkdir ~/.aws/
+      #       cat \<< EOF > ~/.aws/credentials
+      #       aws_access_key_id = AKIA3BIT4IF7LGOO67SN
+      #       aws_secret_access_key = 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
+      #       EOF
+      #       cat \<< EOF > ~/.aws/config
+      #       [default]
+      #       region = us-east-1
+      #       EOF
       - run:
           name: aws caller identity
           command: |
