@@ -6,6 +6,15 @@ orbs:
   
   
 jobs:
+  check-aws-identity:
+    docker:
+      - image: amazon/aws-cli'
+    steps:
+      - checkout
+      - run:
+          name: aws caller identity
+          command: |
+            aws sts get-caller-identity
   create-small-cluster:
     executor: aws-eks/python3
     parameters:
@@ -33,10 +42,7 @@ jobs:
             fi
             $SUDO mv eksctl_download/eksctl /usr/local/bin/
             rmdir eksctl_download
-      - run:
-          name: aws caller identity
-          command: |
-            aws sts get-caller-identity
+      
       - aws-eks/create-cluster:
           cluster-name: << parameters.cluster-name >>
           aws-region: $AWS_DEFAULT_REGION
@@ -149,6 +155,7 @@ workflows:
   default:
     jobs:
       - lint
+      - check-aws-identity
       - configure-image:
           requires:
             - lint
