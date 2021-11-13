@@ -155,7 +155,8 @@ workflows:
            - configure-image
       - test-cluster:
           cluster-name: shubham-capstone
-          
+          requires:
+           - aws-eks/create-cluster
       
       - create-deployment:
           cluster-name: shubham-capstone
