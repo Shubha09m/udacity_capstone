@@ -175,24 +175,24 @@ workflows:
           requires:
             - lint
       - create-small-cluster:
-         cluster-name: shubham-capstone
+         cluster-name: shubham-capstone-${CIRCLE_WORKFLOW_ID:0:7}
          requires:
            - configure-image
       - test-cluster:
-          cluster-name: shubham-capstone
+          cluster-name: shubham-capstone-${CIRCLE_WORKFLOW_ID:0:7}
           requires:
            - create-small-cluster
       
       - create-deployment:
-          cluster-name: shubham-capstone
+          cluster-name: shubham-capstone-${CIRCLE_WORKFLOW_ID:0:7}
           requires:
            - test-cluster
       - test-deployment:
-          cluster-name: shubham-capstone
+          cluster-name: shubham-capstone-${CIRCLE_WORKFLOW_ID:0:7}
           requires:
             - create-deployment              
       - aws-eks/update-container-image:
-          cluster-name: shubham-capstone
+          cluster-name: shubham-capstone-${CIRCLE_WORKFLOW_ID:0:7}
           container-image-updates: 'shubham-capstone-deployment=shubham241/capstone'
           get-rollout-status: true
           record: true
