@@ -148,14 +148,14 @@ workflows:
       - configure-image:
           requires:
             - lint
-      - create-small-cluster:
-         cluster-name: shubham-capstone
-         requires:
+      - aws-eks/create-cluster:
+          cluster-name: shubham-capstone
+          aws-region: $AWS_DEFAULT_REGION
+          requires:
            - configure-image
       - test-cluster:
           cluster-name: shubham-capstone
-          requires:
-           - create-small-cluster
+          
       
       - create-deployment:
           cluster-name: shubham-capstone
