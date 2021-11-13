@@ -141,14 +141,7 @@ workflows:
           
           requires:
             - create-deployment              
-      - aws-eks/update-container-image:
-          
-          container-image-updates: 'shubham-capstone-deployment=shubham241/capstone'
-          get-rollout-status: true
-          record: true
-          requires:
-           - test-deployment
-          resource-name: deployment/shubham-capstone-deployment        
+            
           
             
             
