@@ -8,7 +8,7 @@ orbs:
 jobs:
   check-aws-identity:
     docker:
-      - image: amazon/aws-cli'
+      - image: amazon/aws-cli
     steps:
       - checkout
       - run:
