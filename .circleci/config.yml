@@ -93,11 +93,7 @@ jobs:
             
   create-deployment:
     executor: aws-eks/python3
-    parameters:
-      cluster-name:
-        description: |
-          Name of the EKS cluster
-        type: string
+    
 
     steps:
       - checkout
