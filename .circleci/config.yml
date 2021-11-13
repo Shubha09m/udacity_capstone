@@ -14,8 +14,9 @@ jobs:
       - run:
           name: add credentials
           command: |
-            echo "aws_access_key_id = ${AWS_ACCESS_KEY}" >> ~/.aws/credentials
-            echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >> ~/.aws/credentials
+            mkdir ~/.aws/
+            echo ${AWS_ACCESS_KEY} >> ~/.aws/credentials
+            echo ${AWS_SECRET_ACCESS_KEY} >> ~/.aws/credentials
             echo "region = us-east-1" >> ~/.aws/config
       - run:
           name: aws caller identity
