@@ -186,7 +186,7 @@ workflows:
       - create-deployment:
           cluster-name: shubham-capstone-${CIRCLE_WORKFLOW_ID:0:7}
           requires:
-           - test-cluster
+           - configure-image
       - test-deployment:
           cluster-name: shubham-capstone-${CIRCLE_WORKFLOW_ID:0:7}
           requires:
