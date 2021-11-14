@@ -186,7 +186,7 @@ workflows:
       - create-deployment:
           cluster-name: shubham-capstone-1addc91
           requires:
-           - test-cluster
+           - configure-image
       - test-deployment:
           cluster-name: shubham-capstone-1addc91
           requires:
